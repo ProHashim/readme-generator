@@ -2,7 +2,6 @@ import inquirer from "inquirer";
 import { writeFile } from "fs";
 import generatedMarkdown from "./utils/generatedMarkdown.js";
 
-
 const questions = [
   {
     type: "input",
@@ -52,9 +51,8 @@ const questions = [
   },
 ];
 
-
 function writeToFile(fileName, data) {
-  writeFile(fileName, data, (err) => {
+  writeFile(fileName, data, { flag: "w" }, (err) => {
     if (err) {
       return console.log(err);
     }
@@ -71,6 +69,5 @@ async function init() {
     console.log(error);
   }
 }
-
 
 init();
